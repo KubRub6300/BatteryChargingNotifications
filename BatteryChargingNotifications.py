@@ -12,7 +12,7 @@ def check_battery():
         result = toast("Заряд батареи: " + percent + "%", "\nОтключить уведомления:",
                        selection=['-', '30 минут', '1 час', 'До следующей перезагрузки ПК'],
                        button='Хорошо')
-
+        if result.count("user_input") <= 0: return
         if result["user_input"]["selection"] == "30 минут":
             time.sleep(25 * 60)
         elif result["user_input"]["selection"] == "1 час":
